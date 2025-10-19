@@ -1,0 +1,34 @@
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  title: "Vehicle Price Prediction API"
+  description: "Advanced vehicle price prediction system with ML models"
+  version: "1.0.0"
+
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  models_path: "data/models"
+  dataset_file: "vehicle_dataset.csv"
+
+models:
+  ensemble_weights:
+    xgboost: 0.30
+    lightgbm: 0.30
+    catboost: 0.20
+    neural_network: 0.15
+    random_forest: 0.05
+  
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.2
+
+logging:
+  level: "INFO"
+  format: "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+  file_path: "logs/vehicle_price_prediction.log"
+
+monitoring:
+  metrics_enabled: true
+  prometheus_port: 9090
